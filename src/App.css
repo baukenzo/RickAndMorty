@@ -1,38 +1,169 @@
-.App {
+
+.welcome {
+  background-image: url(./images/welcome.png);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+.charactersPage{
+  background-image: url(./images/gifka.gif);
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Arvo:700);
+@import url(https://fonts.googleapis.com/css?family=Seaweed+Script);
+.plate {
+  width: 410px;
+  margin: 0 auto;
+  padding-top: 2px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 10px 10px;
+}
+.shadow {
+  color: #fff;
+  font-family: Arvo;
+  font-weight: bold;
+  text-shadow:
+    -3px -3px 0 #222,
+    3px -3px 0 #222,
+    -3px 3px 0 #222,
+    3px 3px 0 #222,
+    4px 4px 0 #fff,
+    5px 5px 0 #fff,
+    6px 6px 0 #fff,
+    7px 7px 0 #fff;
+  line-height: 0.8em;
+  letter-spacing: 0.1em;
+  transform: scaleY(0.7);
+  -webkit-transform: scaleY(0.7);
+  -moz-transform: scaleY(0.7);
+  margin:0;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.text1 {
+  font-size: 149px;
+}
+.text2 {
+  font-size: 115px;
+}
+.text3 {
+  font-size: 110px;
+}
+.text4 {
+  font-size: 110px;
+  color: green;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.char__wrapper{
+  background-image: url('./images/gifka.gif');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding-top: 100px;
 }
 
-.App-link {
-  color: #61dafb;
+.char__info {
+  margin: 0 auto;
+  width: 400px;
+  padding: 25px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 5;
+  background-color: #fff;
+  background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+            linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+            linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+}
+.char__info-name {
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 29px;
+  text-transform: uppercase;
+}
+.char__info-status {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 28px;
+  text-transform: uppercase;
+  position: relative;
+}
+.char__info-status::after{
+  content: "♥";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  background-color: inherit;
+  top: 0;
+  right: 133px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.char__info-species{
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.char__info-gender{
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.char__info-from{
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.char__info .skeleton {
+  margin-top: 30px;
+}
+.char__basics {
+  display: grid;
+  grid-template-columns: 150px auto;
+  column-gap: 25px;
+}
+.char__basics img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+.char__btns {
+  margin-top: 35px;
+}
+.char__btns a:nth-child(2) {
+  margin-top: 10px;
+}
+.char__descr {
+  margin-top: 15px;
+  font-size: 14px;
+  line-height: 18px;
+}
+.char__episode {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+  margin-top: 10px;
+}
+.char__episode-list {
+  position: relative;
+  margin-top: 10px;
+}
+.char__episode-item {
+  padding: 0px 10px;
+  line-height: 25px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 10px;
+}
+.char__select {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
 }
