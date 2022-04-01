@@ -167,3 +167,11 @@
   line-height: 24px;
   text-align: center;
 }
+
+.pagination{
+  margin: 0 auto;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  background-color: lawngreen;
+  width: 32%;
+}
