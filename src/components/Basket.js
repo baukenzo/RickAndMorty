@@ -37,7 +37,7 @@ const BasketIcon = styled('span')`
 const Close = styled('button')`
     color: red;
     font-size: 48px;
-    margin-left: 300px;
+    margin-left: 250px;
 `
 
 

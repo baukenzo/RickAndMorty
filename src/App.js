@@ -26,7 +26,7 @@ function App() {
                     <Route path="/characters/:id" element={<CharPage />} />
                     <Route path="/signin/" element={<SignInPage />} />
                     <Route path="/startdown/" element={<StartDown />} />
-                    <Route path="/todopage/" element={<TodoPage />} />
+                    <Route path="/todo" element={<TodoPage />} />
                     <Route path="/shop" element={<ShopPage />} />
                 </Routes>
             </div>

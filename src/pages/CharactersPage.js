@@ -51,9 +51,6 @@ export function CharactersPage() {
             <h1 style={{textAlign: 'center'}}>Oopps this name doesnt exist, try correct name</h1>
         )
     }
-
-    console.log(status)
-    console.log(filter)
     return (
         <div className="charactersPage" >
             <Container maxWidth="xl">

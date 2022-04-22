@@ -47,11 +47,11 @@ export const Navbar = () => {
                     </Box>
 
                     <Box sx={{ flexGrow: 3, display: 'flex' }}>
-                        <Button
-                            onClick={() => navigate('/todopage')}
-                            sx={{ my: 2, color: 'white', display: 'block' }}
+                    <Button
+                            onClick={() => navigate('/todo')}
+                            sx={{my: 2, color: 'white', display: 'block'}}
                         >
-                            ToDoPage
+                            ToDo
                         </Button>
 
                         <Button
