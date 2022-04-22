@@ -1,4 +1,4 @@
-import { useState,  useEffect} from "react";
+import { useState,  useEffect, useCallback} from "react";
 import Gifka from '../images/gifka.gif'
 import {
     Button,
@@ -16,45 +16,40 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
+import {useDispatch, useSelector} from "react-redux";
+import { fetchCharacters, SET_STATUS, SET_FILTER  } from "../store/actions/fetchCharacters";
 
 
 
 
 export function CharactersPage() {
-    const [characters, setCharacters] = useState([]);
-
-    const [pageInfo, setpageInfo] = useState({
-        page: 1,
-        total_pages: 0
-    })
-
-    const [status, setStatus] = useState('');
-
-    const [filter, setFilter] = useState('');
-
+    const characters = useSelector(state => state.characters.characters)
+    const pageInfo = useSelector(state => state.characters.pageInfo)
+    const status = useSelector(state => state.characters.status);
+    const filter = useSelector(state => state.characters.filter)
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        searchCharacters()
-    }, [])
+        dispatch(fetchCharacters())
+    }, [dispatch])
+
+    const setStatus = useCallback((payload) => {
+        dispatch({type: SET_STATUS, payload})
+    }, dispatch)
+
+    const setFilter = useCallback((payload) => {
+        dispatch({type: SET_FILTER, payload})
+    }, dispatch)
+
+    const searchCharacters = useCallback(({page = 1, statusChar = status, filterChar = filter} = {}) => {
+        dispatch(fetchCharacters({page, statusChar, filterChar}))
+    }, [dispatch, status, filter])
 
 
     if (!characters) {
         return (
             <h1 style={{textAlign: 'center'}}>Oopps this name doesnt exist, try correct name</h1>
         )
-    }
-
-
-    function searchCharacters({page = 1, statusik = status} = {}) {
-        fetch(`https://rickandmortyapi.com/api/character/?page=${page}&name=${filter}&status=${statusik}`)
-            .then((res) => res.json())
-            .then((data) => {
-                setCharacters(data.results)
-                setpageInfo({
-                    page: page,
-                    total_pages: data.info.pages
-                })
-            })
     }
 
     console.log(status)
@@ -80,7 +75,7 @@ export function CharactersPage() {
                                         value={status}
                                         onChange={(e) => {
                                             setStatus(e.target.value)
-                                            searchCharacters({statusik: e.target.value})
+                                            searchCharacters({statusChar: e.target.value})
                                         }}
                                     >   <div style={{display: 'flex' }} className="radiowrapper">
                                             <FormControlLabel color="secondary" value="" control={<Radio />} label="All" />
